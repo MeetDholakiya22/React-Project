@@ -21,3 +21,29 @@ export interface SalesData {
   revenue: number;
   expenses: number;
 }
+
+
+export type LeadStatus =
+  | "New"
+  | "Contacted"
+  | "Qualified"
+  | "Converted"
+  | "Lost";
+
+export type LeadPriority =
+  | "Low"
+  | "Medium"
+  | "High";
+
+export interface Lead {
+  id: string;
+  name: string;
+  company: string;
+  email: string;
+  phone: string;
+  source: string;
+  status: LeadStatus;
+  priority: LeadPriority;
+  assignedTo: string;
+  createdAt: string;
+}
