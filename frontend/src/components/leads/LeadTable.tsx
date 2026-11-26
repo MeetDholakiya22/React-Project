@@ -49,7 +49,6 @@ function LeadTable({
             <tr key={lead.id}>
               <td>
                 <strong>{lead.name}</strong>
-                <span className="table-subtext">{lead.id}</span>
               </td>
 
               <td>{lead.company}</td>

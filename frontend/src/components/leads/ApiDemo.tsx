@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@fluentui/react-components";
-import { getUsers, type ApiUser } from "../../services/leadApi";
+import { getUsers, type ApiUser } from "../../services/leadService";
 
 function ApiDemo() {
   const [users, setUsers] = useState<ApiUser[]>([]);

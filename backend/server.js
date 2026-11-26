@@ -1,23 +1,38 @@
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
+const leadRoutes = require("./routes/leadRoutes");
+
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Connect MongoDB
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log("MongoDB Connected"))
-    .catch((error) => console.log(error));
-
 // Test API
 app.get("/", (req, res) => {
-    res.send("Backend API is running");
+  res.send("WorkFlow Pro Backend API is running");
 });
 
-app.listen(5000, () => {
-    console.log("Server running on port 5000");
-});
+// Lead APIs
+app.use("/api/leads", leadRoutes);
+
+// Connect MongoDB and start server
+const PORT = process.env.PORT || 5000;
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("MongoDB Connected Successfully");
+
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("MongoDB Connection Error:", error.message);
+    process.exit(1);
+  });

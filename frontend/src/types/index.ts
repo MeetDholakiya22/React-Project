@@ -42,8 +42,8 @@ export interface Lead {
   email: string;
   phone: string;
   source: string;
-  status: LeadStatus;
-  priority: LeadPriority;
+  status: "New" | "Contacted" | "Qualified" | "Converted" | "Lost";
+  priority: "Low" | "Medium" | "High";
   assignedTo: string;
   createdAt: string;
 }
