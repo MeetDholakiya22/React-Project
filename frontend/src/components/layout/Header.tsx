@@ -30,13 +30,6 @@ function Header({ onMenuClick, pageTitle }: HeaderProps) {
       </div>
 
       <div className="header-right">
-        <Input
-          className="header-search"
-          placeholder="Search anything..."
-          contentBefore={<Search20Regular />}
-          aria-label="Search"
-        />
-
         <Button
           appearance="subtle"
           icon={<Alert20Regular />}

@@ -5,6 +5,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const leadRoutes = require("./routes/leadRoutes");
+const customerRoutes = require("./routes/customerRoutes");
 
 const app = express();
 
@@ -19,6 +20,8 @@ app.get("/", (req, res) => {
 
 // Lead APIs
 app.use("/api/leads", leadRoutes);
+// customers APIs
+app.use("/api/customers", customerRoutes);
 
 // Connect MongoDB and start server
 const PORT = process.env.PORT || 5000;

@@ -5,6 +5,7 @@ import Sidebar from "./Sidebar";
 import Header from "./Header";
 import Dashboard from "../../pages/Dashboard";
 import Leads from "../../pages/Leads";
+import Customers from "../../pages/Customers";
 
 function AppLayout() {
   const [activePage, setActivePage] = useState("Dashboard");
@@ -17,6 +18,9 @@ function AppLayout() {
 
       case "Leads":
         return <Leads />;
+
+      case "Customers":
+        return <Customers />;
 
       default:
         return (
